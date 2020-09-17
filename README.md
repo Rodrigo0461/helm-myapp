@@ -17,10 +17,33 @@ Instalar Helm en MacOS
 brew install helm
 ```
 
-# ¿Cómo Despliego?
+# Helm Create
 
-Nota: Archivos yaml ya fueron generados con helm create, por ende se omite dicho paso
+Nota: Archivos yaml ya fueron generados con helm create, por ende se debe omitir dicho paso.
 
+```
+# helm create app-test
+```
+
+Helm Create crea la siguente estructura de archivos
+
+```
+tree .
+.
+├── Chart.yaml
+├── charts
+├── templates
+│   ├── NOTES.txt
+│   ├── _helpers.tpl
+│   ├── deployment.yaml
+│   ├── ingress.yaml
+│   ├── service.yaml
+│   ├── serviceaccount.yaml
+│   └── tests
+│       └── test-connection.yaml
+└── values.yaml
+```
+# ¿Cómo Despliego? ... Helm Install
 ```
 helm install app-test -f values.yaml deploy --atomic --wait
 ```
